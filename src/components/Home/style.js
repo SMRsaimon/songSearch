@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const ContainerWrapper = styled.div`
   width: 100%;
- 
+ min-height:100vh;
   background-color: #f8f8f8cf;
   display: flex;
   justify-content: center;
@@ -35,5 +35,11 @@ const Text = styled.p`
   font-weight: normal;
   color: rgba(0, 0, 0, 0.65);
 `;
+const Heading = styled.h1`
+  margin-top: 50px;
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: rgba(0, 0, 0, 0.65);
+`;
 
-export { Card, ContainerWrapper, Container, Text, CardContainer };
+export { Card, ContainerWrapper, Container, Text, CardContainer,Heading };
