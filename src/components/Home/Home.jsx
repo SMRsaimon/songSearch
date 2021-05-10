@@ -19,7 +19,6 @@ const Home = () => {
 
   useEffect(() => {
 
- 
     fetch(`https://itunes.apple.com/search?term=${searchResult}`)
       .then((res) => res.json())
       .then((data) => {
@@ -29,16 +28,14 @@ const Home = () => {
 
   const hendelSearch = (e) => {
 
-    console.log(e.target.value)
     if (e.target.value) {
       setSearchResult(e.target.value);
     } else {
-      setResult([]);
+        setResult([]);
+        setSearchResult(e.target.value);
+     
     }
   };
-
-
-
 
   return (
     <ContainerWrapper>
@@ -53,6 +50,7 @@ const Home = () => {
               onChange={(e) => hendelSearch(e)}
               name="search"
               id="search"
+              value={searchResult}
             />
             <span>
               <AiOutlineSearch />

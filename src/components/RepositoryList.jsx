@@ -6,7 +6,7 @@ const RepositoryList = () => {
     return (
         <>
         <Card style={{marginTop:"50px"}}>
-        <div>Get details of repositories</div>
+        <div>Repository List</div>
      </Card>
      <Card>
         <Text>Search for a repository by entering it's name in the search box</Text>

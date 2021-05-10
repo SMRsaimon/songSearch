@@ -7,7 +7,7 @@ const SearchResult = ({searchResult, result}) => {
   return (
     <>
         
-        <Card style={{ width: "90%" }}>
+        <Card style={{ width: "90%", marginBottom:"20px" }}>
         <Text>Artist Name: {artistName}</Text>
         <Text>Collection Name: {collectionName}</Text>
         <Text>Collection Price: {collectionPrice}</Text>
