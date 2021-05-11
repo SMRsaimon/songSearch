@@ -1,34 +1,29 @@
+import "./App.css";
+import Home from "./components/Home/Home";
 
-import './App.css';
-import Home from './components/Home/Home';
-
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
- 
-} from "react-router-dom";
-import NotMatch from './components/NotMatch';
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import NotMatch from "./components/NotMatch";
+import Header from "./components/Header/Header";
 
 
 function App() {
   return (
-
     <Router>
-
       <Switch>
-        <Route exact path="/" component={Home}>
-        
+        <Route exact path="/">
+          <Header />
+          <Home />
         </Route>
-        <Route  path="/home" component={Home}>
-           
+        <Route path="/home">
+          <Header />
+          <Home />
         </Route>
-        <Route  path="*" component={NotMatch}>
-           
+        <Route path="*">
+          <Header />
+          <NotMatch />
         </Route>
       </Switch>
     </Router>
-   
   );
 }
 

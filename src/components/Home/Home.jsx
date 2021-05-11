@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, {  useState } from "react";
 import "./Home.css";
 import {
   Card,
@@ -13,6 +13,7 @@ import SearchResult from "../SearchResult";
 import { connect } from "react-redux";
 import { requestApiData } from "../../redux/action/userAction";
 import { getProfile } from "../../redux/selector";
+import { Link } from "react-router-dom";
 
 const Home = ({profile,requestApiData}) => {
   const [name, setName] = useState("");
@@ -30,6 +31,7 @@ const Home = ({profile,requestApiData}) => {
   return (
     <ContainerWrapper>
       <Container>
+        <Link to="/notMatch" className="text-right">Go to Storybook</Link>
         <Card>Repository Search</Card>
         <Card>
           <Text>Get details of repositories</Text>
@@ -50,7 +52,7 @@ const Home = ({profile,requestApiData}) => {
 
         {profile.length === 0 ? (
           <>
-            <RepositoryList />{" "}
+            <RepositoryList />
           </>
         ) : (
           <>

@@ -32,3 +32,12 @@ input[type="search"] {
     content: '';
     width: 32px;
     }
+
+    .text-right{
+        text-align: right;
+        display: block;
+        padding: 20px 3px 21px 0px;
+        color: rgb(24, 144, 255);
+        text-decoration: none;
+        font-weight: 600;
+    }

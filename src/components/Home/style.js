@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const ContainerWrapper = styled.div`
-  width: 100%;
+width:100%;
  min-height:100vh;
   background-color: #f8f8f8cf;
   display: flex;
@@ -36,10 +36,13 @@ const Text = styled.p`
   color: rgba(0, 0, 0, 0.65);
 `;
 const Heading = styled.h1`
-  margin-top: 50px;
-  font-size: 2.5rem;
-  font-weight: 800;
-  color: rgba(0, 0, 0, 0.65);
+ 
+font-size: 2rem;
+font-weight: 700;
+color: rgba(0,0,0,0.65);
+margin-left: "20px";
+margin-top: -68px;
+margin-left: 102px;
 `;
 
 export { Card, ContainerWrapper, Container, Text, CardContainer,Heading };
