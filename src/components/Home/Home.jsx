@@ -10,32 +10,22 @@ import {
 import { AiOutlineSearch } from "react-icons/ai";
 import RepositoryList from "../RepositoryList";
 import SearchResult from "../SearchResult";
+import { connect } from "react-redux";
+import { requestApiData } from "../../redux/action/userAction";
+import { getProfile } from "../../redux/selector";
 
-const Home = () => {
-  const [result, setResult] = useState([]);
-  const [searchResult, setSearchResult] = useState("");
-
- 
-
-  useEffect(() => {
-
-    fetch(`https://itunes.apple.com/search?term=${searchResult}`)
-      .then((res) => res.json())
-      .then((data) => {
-        setResult(data.results);
-      });
-  }, [searchResult]);
-
+const Home = ({profile,requestApiData}) => {
+  const [name, setName] = useState("");
+  
   const hendelSearch = (e) => {
-
-    if (e.target.value) {
-      setSearchResult(e.target.value);
-    } else {
-        setResult([]);
-        setSearchResult(e.target.value);
-     
-    }
+          const data={
+            name:e.target.value
+          }
+          setName(e.target.value)
+     requestApiData(data)
   };
+
+
 
   return (
     <ContainerWrapper>
@@ -50,7 +40,7 @@ const Home = () => {
               onChange={(e) => hendelSearch(e)}
               name="search"
               id="search"
-              value={searchResult}
+              
             />
             <span>
               <AiOutlineSearch />
@@ -58,17 +48,17 @@ const Home = () => {
           </span>
         </Card>
 
-        {result.length === 0 ? (
+        {profile.length === 0 ? (
           <>
             <RepositoryList />{" "}
           </>
         ) : (
           <>
             <CardContainer style={{ marginTop: "50px" }}>
-              <Text>Search query: {searchResult}</Text>
-              <Text>Total number of matching repos: {result.length}</Text>
+              <Text>Search query: {name}</Text>
+              <Text>Total number of matching repos: {profile.results.length}</Text>
 
-              {result.map((x) => (
+              {profile.results.map((x) => (
                 <SearchResult result={x} />
               ))}
             </CardContainer>
@@ -79,7 +69,12 @@ const Home = () => {
   );
 };
 
-export default Home;
-// {
-//     searchResult.map(x=><li>{x.artistName}</li>)
-// }
+const mapStateToProps = state => ({
+  profile: getProfile(state)
+});
+
+const mapDispatchToProps={
+  requestApiData:requestApiData
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home);
